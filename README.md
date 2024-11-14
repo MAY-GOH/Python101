@@ -2,6 +2,7 @@
 Purposely create this file for Software dev subject
 
 For my students: *Suggestion: Use your own laptop during practical classes to familiar yourself with the software on your own device
+<br>
 Before practical 1, 
 1. Please download 
 Anaconda Distribution - https://docs.anaconda.com/anaconda/getting-started
