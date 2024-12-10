@@ -157,3 +157,103 @@ for i in range(len(answers)):
     print(" Guess : {:s}".format("Head" if guesses[i] == 1 else "Tail"))
     print(" Result: {:s}".format("Correct" if outputs[i] else "Wrong"))
     print()
+
+# Question 5
+scores = []
+
+while True:     
+    number = input("Enter the number of students: ")
+    
+    if number.isdigit():
+        number = int(number)
+        if number == 0:
+            print("Only positive integer is allowed!\n")
+            continue
+        else:
+            count = 1
+            scores = []
+            
+            print("\nEnter the {:s}.".format("students' scores" if number > 1 else "student's score"))
+            while count <= number:
+                match (count % 10):
+                    case 1:
+                        suffix = "st"
+                    case 2: 
+                        suffix = "nd"
+                    case 3:
+                        suffix = "rd"
+                    case _:
+                        suffix = "th"
+                message = "{:>3s}{} student: ".format(str(count), suffix)
+
+                try:
+                    score = float(input(message))  
+                    if score < 0:
+                        print("Only zero or positive value is allowed!\n")
+                    else:
+                        scores.append(score)
+                        count += 1
+                except ValueError:
+                    print("Only number is allowed!\n")
+                    
+            if count > number:
+                break         
+    else:
+        print("Only positive integer is allowed!\n")
+
+scores.sort(reverse=True)
+
+print("\nThe highest score       : {:.0f}%".format(scores[0]))
+print("The second highest score: {:.2f}%".format(scores[1]))
+print("The average score       : {:.2f}%".format(sum(scores) / len(scores)))
+
+# Question 6
+numbers = []
+pos_count = 0
+neg_count = 0
+
+while True:
+    try: 
+        number = int(input("Enter a number: "))
+        if number == 0:
+            break
+        else:
+            numbers.append(number)
+    except:
+        print("Only integers are acceptable!")
+
+for number in numbers:
+    if number > 0:
+        pos_count += 1
+    else:
+        neg_count += 1
+        
+print("\nNo. of positive numbers: {:d}".format(pos_count))
+print("No. of negative numbers: {:d}".format(neg_count))
+print("Sum of all numbers     : {:d}".format(sum(numbers)))
+print("Average of all numbers : {:.2f}".format((sum(numbers)/len(numbers))))
+
+# Question 7
+
+while True:
+  print("Enter a line of whitespace separated integers...")
+  numbers = input("Integers: ")
+  numbers = numbers.split()
+  try:
+    numbers = [int(number) for number in numbers]
+    if len(numbers) > 0:
+      break
+    else:
+      print("No input is provided!\n")
+
+  except:
+    print("Only integers are acceptable!\n")
+
+numbers = set(numbers) #Take away duplicated value, if any
+numbers = list(numbers)
+numbers.sort()
+
+print("Numbers (ascending order): ", end= "")
+for number in numbers:
+  print(number, end = " ")
+
