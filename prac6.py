@@ -82,3 +82,28 @@ while True:
                     print("You have entered a wrong input!")
 
 print("Thank you!")
+
+# Question 3
+numbers = []
+
+while True:
+  number = input("Enter an integer or 'Q'/'q' to exit: ")
+
+  if number == "Q" or number == "q":
+    break
+
+  try:
+    numbers.append(int(number))
+
+  except ValueError:
+    print("Only integer in allowed!")
+
+if len(numbers):
+  numbers = numbers[::-1]
+
+  print("\n Integers in reversed order:", end=" ")
+  for num in numbers:
+    print(num, end=" ")
+
+else:
+  print("No integers")
